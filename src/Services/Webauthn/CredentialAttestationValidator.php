@@ -35,11 +35,13 @@ class CredentialAttestationValidator extends CredentialValidator
         $content = json_encode($data, flags: JSON_THROW_ON_ERROR);
         $publicKeyCredential = $this->loader->deserialize($content, PublicKeyCredential::class, 'json');
 
+        $host = config('webauthn.domain.host', $this->request->host()); 
+
         // Check the response against the request
         return $this->validator->check(
             $this->getResponse($publicKeyCredential),
             $this->pullPublicKey($user),
-            $this->request->host()
+            $host
         );
     }
 

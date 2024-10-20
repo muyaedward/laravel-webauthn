@@ -23,12 +23,14 @@ abstract class CredentialValidator
      */
     protected function cacheKey(?User $user): string
     {
+        $host = config('webauthn.domain.host', $this->request->host()); 
+
         return implode(
             '|',
             [
                 self::CACHE_PUBLICKEY_REQUEST,
                 $user !== null ? get_class($user).':'.$user->getAuthIdentifier() : '',
-                hash('sha512', $this->request->host().'|'.$this->request->ip()),
+                hash('sha512', $host.'|'.$this->request->ip()),
             ]
         );
     }

@@ -204,7 +204,8 @@ class WebauthnServiceProvider extends ServiceProvider
             PublicKeyCredentialRpEntity::class,
             fn ($app) => new PublicKeyCredentialRpEntity(
                 $app['config']->get('app.name', 'Laravel'),
-                $app->make('request')->host(),
+                // $app->make('request')->host(),
+                $app['config']->get('webauthn.domain.host', $app->make('request')->host()),
                 $app['config']->get('webauthn.icon')
             )
         );
