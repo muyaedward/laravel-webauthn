@@ -1,5 +1,5 @@
 {
-    "name": "muyaedward/laravel-webauthn",
+    "name": "muyaedwardd/laravel-webauthn",
     "description": "Laravel Webauthn support",
     "keywords": [
         "laravel",
@@ -10,8 +10,8 @@
     "type": "library",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/muyaedward/laravel-webauthn/issues",
-        "source": "https://github.com/muyaedward/laravel-webauthn"
+        "issues": "https://github.com/muyaedwardd/laravel-webauthn/issues",
+        "source": "https://github.com/muyaedwardd/laravel-webauthn"
     },
     "authors": [
         {

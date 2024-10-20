@@ -23,7 +23,7 @@ abstract class CredentialValidator
      */
     protected function cacheKey(?User $user): string
     {
-        $host = config('webauthn.domain.host', $this->request->host()); 
+        $host = $this->request->header('X-venue-host') ?? $this->request->host();
 
         return implode(
             '|',
